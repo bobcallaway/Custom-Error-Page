@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .code }}</title>
+</head>
+<body>
+{{ if eq .code 404 }}
+  <p>
+      the page you are looking for can not be found.
+  </p>
+{{ else if ge .code 500 }}
+  <p>
+    Service not ready, please wait, response code: {{ .code }}
+  </p>
+{{ end }}
+  <p>
+    original url: {{ .originalUrl }}
+    server-name: {{ or .serverName .ingressName  }}
+    {{ if .requestId }}
+    request id: {{ .requestId }}
+    {{ end }}
+  </p>
+</body>
+</html>
