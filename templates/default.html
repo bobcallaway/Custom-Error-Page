@@ -15,10 +15,10 @@
   </p>
 {{ end }}
   <p>
-    original url: {{ .originalUrl }}
-    server-name: {{ or .serverName .ingressName  }}
+    original url: {{ .originalUrl }} <br/>
+    server-name: {{ or .serverName .ingressName  }}<br/>
     {{ if .requestId }}
-    request id: {{ .requestId }}
+    request id: {{ .requestId }}<br/>
     {{ end }}
   </p>
 </body>
