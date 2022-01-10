@@ -23,6 +23,12 @@ func TestCodeHeader(t *testing.T) {
 	req.Header.Set("X-Code", "503")
 	gin.ServeHTTP(w, req)
 	assert.Equal(t, 503, w.Code)
+
+	w = httptest.NewRecorder()
+	req, _ = http.NewRequest("GET", "/not-exist", nil)
+	req.Header.Set("X-Code", "503")
+	gin.ServeHTTP(w, req)
+	assert.Equal(t, 503, w.Code)
 }
 
 func TestServerName(t *testing.T) {

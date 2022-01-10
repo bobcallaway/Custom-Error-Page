@@ -110,6 +110,7 @@ func setupRouter() *gin.Engine {
 	r.GET("/healthz", func(c *gin.Context) {
 		c.String(200, "OK")
 	})
+	r.NoRoute(errorHandler(defaultFormat, serverName, isDebug))
 	return r
 }
 
